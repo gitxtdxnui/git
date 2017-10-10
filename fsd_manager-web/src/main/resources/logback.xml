@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<configuration>
+	<!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%-5level] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %logger.%method[%file:%line] - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- 日志输出级别 -->
+	<root>
+		<level value="info" />
+		<appender-ref ref="console" />
+	</root>
+	
+	<logger name="com.feishidai.manager.dao" level="debug">	</logger>
+</configuration> 

@@ -1,0 +1,23 @@
+<form id="manager_content_window_form" method="post" style="text-align:center;height:95%;margin: 10 10 10 10;" >
+    <div style="margin-bottom:20px">
+        <select class="easyui-combobox" name="channel" style="width:650px" data-options="label:'频道:',required:true,panelHeight:'auto',editable:false" >
+        </select>
+    </div>
+    <div style="margin-bottom:20px">
+        <input class="easyui-textbox" name="title" style="width:650px" data-options="label:'标题:',required:true" >
+    </div>
+    <div style="margin-bottom:20px">
+        <select class="easyui-combobox" name="orderBy" style="width:650px" data-options="label:'是否置顶:',required:true,panelHeight:'auto',editable:false" >
+        	<option value="0">否</option>
+        	<option value="1">是</option>
+        </select>
+    </div>
+    <div style="margin-bottom:20px">
+        <input class="easyui-textbox" name="content" style="width:650px;height:360px" data-options="label:'内容:',required:true,multiline:true" >
+    </div>
+</form>
+<script>
+for(var key in com.cms.content.channelEnum){
+	$('#manager_content_window_form select[name=channel]').append('<option value="'+key+'">'+com.cms.content.channelEnum[key]+'</option>');
+}
+</script>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.feishidai.manager.dao.ContentDao">
+	<resultMap type="com.feishidai.manager.dao.bean.Content" id="content">
+		<result property="orderBy" column="order_by"/>
+		<result property="publishTime" column="publish_time"/>
+		<result property="homeFile" column="home_file"/>
+	</resultMap>
+	
+	<sql id="content_sql">
+		where is_del=0
+		<if test="title!=null"> and title like '%${title}%'</if>
+		<if test="channel!=null"> and channel = #{channel}</if>
+		<if test="status!=null"> and status = #{status}</if>
+	</sql>
+	
+	<select id="select" resultMap="content">
+		SELECT id, title, channel, publish_time, status, home_file, order_by FROM cms.content 
+		<include refid="content_sql" /> 
+		order by status asc, order_by desc, publish_time desc limit #{start}, #{rows}
+	</select>
+	
+	<select id="count"  resultType="java.lang.Integer">
+		SELECT count(*) total from cms.content
+		<include refid="content_sql" /> 
+	</select>
+	
+	<select id="selectOne" resultMap="content">
+		SELECT * FROM cms.content where is_del=0 and id=#{value}
+	</select>
+	
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
+    	INSERT INTO cms.content 
+		 <trim prefix="(" suffix=")" suffixOverrides=",">
+		 	<if test="title!=null">title ,</if>
+		 	<if test="content!=null">content ,</if>
+		 	<if test="channel!=null">channel ,</if>
+		 	<if test="orderBy!=null">order_by ,</if>
+		 </trim>
+		 <trim prefix="values (" suffix=")" suffixOverrides=",">
+		 	<if test="title!=null">#{title} ,</if>
+		 	<if test="content!=null">#{content} ,</if>
+		 	<if test="channel!=null">#{channel} ,</if>
+		 	<if test="orderBy!=null">order_by = #{orderBy} ,</if>
+		 </trim>
+	</insert>
+	
+	<update id="modify">
+		UPDATE cms.content 
+		<set>
+		 	<if test="title!=null">title = #{title} ,</if>
+		 	<if test="content!=null">content = #{content} ,</if>
+		 	<if test="channel!=null">channel = #{channel} ,</if>
+		 	<if test="status!=null">status = #{status} ,</if>
+		 	<if test="publishTime!=null">publish_time = #{publishTime} ,</if>
+		 	<if test="homeFile!=null">home_file = #{homeFile} ,</if>
+		 	<if test="orderBy!=null">order_by = #{orderBy} ,</if>
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE cms.content set is_del=1 WHERE id = #{id}
+	</update>
+</mapper>
+

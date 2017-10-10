@@ -1,0 +1,103 @@
+body {
+    background-image: none;
+}
+.demoleft {
+    width: 600px;
+    border: 1px solid #dddddd;
+    font-family: Microsoft YaHei;
+    color: #666666;
+    margin-top: 20px;
+    float: left;
+    padding: 30px;
+}
+.demoleft img{max-width: 600px;}
+.articletitle {
+    width: 100%;
+    height: 52px;
+    border-bottom: 1px dotted #dddddd;
+    font-size: 18px;
+    line-height: 52px;
+    text-align: center;
+}
+
+.releasedate {
+    height: 25px;
+    text-align: right;
+    font-size: 12px;
+    color: #999999;
+    line-height: 20px;
+    padding: 5px 0 20px 0;
+}
+
+.articlemainbody {
+    text-align: left;
+    text-indent: 2em;
+    font-size: 14px;
+    margin: 10px 30px;
+    line-height: 30px;
+}
+
+.inscribe {
+    text-align: right;
+    font-size: 14px;
+    margin-right: 30px;
+    line-height: 35px;
+}
+
+.downHelpTitle {
+    width: 255px;
+    height: 42px;
+    border-bottom: 1px solid #cccccc;
+    text-indent: 5px;
+    _text-indent: 3px;
+    position: relative;
+    margin-top: -8px;
+}
+
+.downHelpTitle span {
+    display: block;
+    font-size: 18px;
+    font-family: Microsoft YaHei;
+    position: absolute;
+    top: 11px;
+    color: #666666;
+}
+
+.downHelpTitle p {
+    width: 30px;
+    height: 0px;
+    border-bottom: 1px solid #db4e32;
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+}
+.downHelpTitle span {
+    line-height: 20px;
+    font-size: 16px;
+    color: #393939;
+}
+.downHelpContents {
+    width: 260px;
+    height: auto;
+    float: right;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #d7d7d7;
+    line-height: 26px;
+    margin-top: 20px;
+}
+.downHelpContents ul{overflow: hidden;padding-top: 10px;}
+.downHelpContents li {
+    list-style: decimal inside;
+    text-indent: 0.5em;
+}
+.downHelpContents a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #333333;
+}
+.downHelpContents a:hover {
+    font-size: 12px;
+    text-decoration: none;
+    color: #ff7800;
+}

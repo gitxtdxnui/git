@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>内容管理系统</title>
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link rel="stylesheet" type="text/css" href="./js/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="./js/easyui/themes/icon.css">
+	<script type="text/javascript" src="./js/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="./js/easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="./js/common/common.js"></script>
+	<script type="text/javascript" src="./js/app/content.js"></script>
+</head>
+
+<body>
+	<div class="easyui-layout" data-options="fit:true">
+        <div data-options="region:'north'" style="background-color: #a6bdff;overflow:hidden;">
+			<span style="font-size:36px;color: #ffffff;font-family: STCaiyun;">内容管理系统</span>
+			<span style="color: #5d60d4;float:right">
+				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-edit" onclick="com.cms.content.modifypassword();" style="margin:5 5 5 5">修改密码</a>
+				<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-back" onclick="com.cms.content.loginout();" style="margin:5 5 5 5">退出系统</a>
+			</span>
+        </div>
+        <div data-options="region:'center'">
+            <table class="easyui-datagrid" id="manager_content_grid" toolbar="#manager_content_grid_toolbar" data-options="fit:true">
+            </table>
+			<div id="manager_content_grid_toolbar">
+	        	<form id="manager_content_grid_form" method="post" style="margin-bottom: 0;">
+					<a href="javascript:void(0);" class="easyui-linkbutton" iconCls="icon-add" plain="true" style="padding-right:10px;" onclick="com.cms.content.add()">新建</a>|
+					<font style="padding-left:10px;">标题:</font><input class="easyui-textbox" name="title" style="width:300px" >
+					<a href="javascript:void(0);" class="easyui-linkbutton" onclick="com.cms.content.search();" iconCls="icon-search" plain="true">搜索</a>
+				</form>
+			</div>
+        </div>
+    </div>
+	<div id="window-content"></div>
+</body>
+</html>
